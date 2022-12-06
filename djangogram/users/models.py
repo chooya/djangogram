@@ -12,7 +12,7 @@ class User(AbstractUser):
         ('C', 'Custom'),
     ]
     #: First and last name do not cover name patterns around the globe
-<<<<<<< HEAD
+
     name = models.CharField(blank=True, max_length=255)
     user_name = models.CharField(blank=True, max_length=255)
     profile_photo = models.ImageField(blank=True)
@@ -21,19 +21,10 @@ class User(AbstractUser):
     email = models.CharField(blank=True, max_length=255)
     phone_number = models.CharField(blank=True, max_length=255)
     gender = models.CharField(blank=True, choices=GENDER_CHOICES,max_length=1)
-=======
-    name = CharField(_("Name of User"), blank=True, max_length=255)
-    first_name = None  # type: ignore
-    last_name = None  # type: ignore
-
-    
-
-    def get_absolute_url(self):
-        """Get url for user's detail view.
->>>>>>> 9a30f0e6b473987a3cc553422766ff577e7e59c4
 
     followers = models.ManyToManyField("self")
     following = models.ManyToManyField("self")
 
+    
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
